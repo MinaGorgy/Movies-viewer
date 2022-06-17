@@ -1,0 +1,12 @@
+<h2>{{currentMovie?.title}}</h2>
+<div class="list-group-container mt-5">
+  <ul class="list-group">
+    <li class="list-group-item">Tag Line: {{currentMovie?.tagline}}</li>
+    <li class="list-group-item">Status: {{currentMovie?.status}}</li>
+    <li class="list-group-item">Release Date: {{currentMovie?.release_date}}</li>
+    <li class="list-group-item">Run Time: {{currentMovie?.runtime}}</li>
+    <li class="list-group-item" *ngIf="currentMovie?.vote_average">
+      <rating [(ngModel)]="currentMovie.vote_average" [max]="10" [readonly]="true"></rating> {{currentMovie?.vote_average}}
+    </li>
+  </ul>
+</div>

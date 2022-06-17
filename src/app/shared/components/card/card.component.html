@@ -1,0 +1,9 @@
+<div class="card-container">
+  <div class="card" (click)="onCardClick()">
+    <img [src]="cardImgSrc" class="card-img-top" alt="Movie">
+    <div class="card-body" *ngIf="!hasImageOnly">
+      <p class="card-text" *ngIf="!trimText">{{cardText}}</p>
+      <p class="card-text" *ngIf="trimText">{{cardText | trimText : maxTextLength}}</p>
+    </div>
+  </div>
+</div>

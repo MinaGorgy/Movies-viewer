@@ -1,0 +1,29 @@
+<div class="container">
+  <div *ngIf="!isLoading">
+    <div class="row">
+      <div class="col-3" *ngFor="let movie of popularMoviesResponse?.results">
+        <app-card
+        [cardImgSrc]="movie.poster_path"
+        [cardText]="movie.title"
+        [cardKey]="movie.id"
+        [trimText]="true"
+        (cardClicked)="movieSelected($event)">
+        </app-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mt-3 mb-3">
+        <div class="d-flex justify-content-center">
+          <pagination [totalItems]="popularMoviesResponse?.total_results" [(ngModel)]="currentPage" [maxSize]="5"
+            (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading">
+    <app-spinner></app-spinner>
+  </div>
+</div>
+
+<app-error-modal [isModalShown]="isErrorModalShown" [errorMessage]="errorMessage"></app-error-modal>

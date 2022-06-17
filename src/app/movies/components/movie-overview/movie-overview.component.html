@@ -1,0 +1,22 @@
+<div class="overview-container mt-5">
+  <div class="row">
+    <div class="col-4">
+      <app-card [cardImgSrc]="currentMovie?.poster_path || currentMovie?.backdrop_path" [hasImageOnly]="true">
+      </app-card>
+    </div>
+
+    <div class="col-8">
+      <div class="row">
+        <div class="col-12">
+          <app-movie-brief [currentMovie]="currentMovie"></app-movie-brief>
+        </div>
+        <div class="col-12">
+          <div class="overview-container mt-5">
+            <h4>Overview</h4>
+            <p>{{currentMovie?.overview}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

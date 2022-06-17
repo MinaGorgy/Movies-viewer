@@ -1,0 +1,30 @@
+<div *ngIf="isModalShown" [config]="{ show: true }"
+     class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-auto-name" class="modal-title pull-left">Error</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <img class="error-img" src="./../../../../assets/vecteezy_conceptual-os-error-warning-for-web-pages-banners_5611288.jpg" alt="error image">
+            </div>
+            <div class="col-12">
+              <h1>Oops !! Something went wrong :(</h1>
+              <div class="list-group-container mt-5">
+                <ul class="list-group">
+                  <li class="list-group-item">Message: {{errorMessage}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
