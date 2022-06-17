@@ -11,18 +11,15 @@ export class GenericHttpService {
   constructor(private httpClient: HttpClient) { }
 
   getAll<TResponse>(url: string, queryParams?: HttpParams): Observable<TResponse> {
-    // configure the request URL properly.
-    const requestUrl = `${environment.baseUrl}${url}`;
-
     // send the HTTP request.
-    return this.httpClient.get<TResponse>(requestUrl, {
+    return this.httpClient.get<TResponse>(url, {
       params: queryParams
     });
   }
 
   getItem<TResponse>(url: string, id: string | number, queryParams?: HttpParams): Observable<TResponse> {
     // configure the request URL properly.
-    const requestUrl = `${environment.baseUrl}${url}${id}`;
+    const requestUrl = `${url}${id}`;
 
     // send the HTTP request.
     return this.httpClient.get<TResponse>(requestUrl, {

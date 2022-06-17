@@ -62,7 +62,8 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
   private getMoviesFromServer(hasSearchQuery: boolean, searchQuery: string = ''): void {
     this.isLoading = true;
 
-    const requestUrl = hasSearchQuery ? environment.searchMovies : environment.getPopularMovies;
+    let requestUrl = environment.baseUrl;
+    requestUrl += hasSearchQuery ? environment.searchMovies : environment.getPopularMovies;
 
     const httpParams = !hasSearchQuery
     ? new HttpParams()

@@ -31,7 +31,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.movieDetailsSubscription = this.moviesDetailsService
-        .getItem<MovieDetails>(environment.getMovieDetails, params.id).pipe(
+        .getItem<MovieDetails>(`${environment.baseUrl}${environment.getMovieDetails}`, params.id).pipe(
           map((response: MovieDetails) => {
             response.poster_path = environment.imagesConfigUrl + response.poster_path;
             response.backdrop_path = environment.imagesConfigUrl + response.backdrop_path;
